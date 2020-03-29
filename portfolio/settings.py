@@ -52,6 +52,7 @@ DJANGO_APPS = [
 # Omar: Aplicaciones desarrolladas
 APPLICATIONS_APPS = [
     'jobs',
+    'blog',
 ]
 
 # Omar: Aplicaciones desarrolladas
