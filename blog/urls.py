@@ -13,17 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
-# Omar: Import requerido para tener acceso a /media/ en éste caso a las imagenes del ejemplo
-from django.conf import settings
-from django.conf.urls.static import static
-
-import jobs.views # Omar: En caso de que se importen muchas views, es mejor utilizar import
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', jobs.views.home, name='home'),
-    path('blog/', include('blog.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # Omar: se usa para trabajar con archivos subido por usuarios
+    path('', views.allblogs, name='allblogs'),
+    path('<int:blog_id>', views.blog_detail, name='blog_detail'),
+]

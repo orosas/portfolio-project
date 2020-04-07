@@ -135,7 +135,7 @@ LANGUAGE_CODE = 'es-MX'
 
 TIME_ZONE = 'America/Mexico_City'
 
-USE_I18N = False
+USE_I18N = True # Omar: A boolean that specifies whether Django’s translation system should be enabled
 
 USE_L10N = True
 
@@ -145,8 +145,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'portfolio/static'), ] # Omar: En qué directorio debo buscar archivos static
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') # Omar: Config. para static files para deployment después de ejecutar collectstatic
+
+STATIC_URL = '/static/' # Omar: ruta que se muestra en el server en producción de la forma: www.misitio.com/static/archivo.js
+                      # puede ser cualquier string sin afectar el "despacho" del contenido
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Omar: Directorio donde se guardan los archivos que el usuario sube al sistema
 
