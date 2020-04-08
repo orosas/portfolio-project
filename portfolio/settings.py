@@ -103,11 +103,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 #     }
 # }
 
-#  Omar: Se agrega para la configuración de la base
-try:
-    from .local_settings import *
-except:
-    pass
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -155,3 +151,15 @@ STATIC_URL = '/static/' # Omar: ruta que se muestra en el server en producción 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Omar: Directorio donde se guardan los archivos que el usuario sube al sistema
 
 MEDIA_URL = '/media/' # Omar: Cuando alquien quiera accesar una imagen, lugar donde se va a buscar.
+
+#  Omar: Se agrega para la configuración de la base
+# try:
+#     from .local_settings import *
+# except:
+#     pass
+
+#  Omar: Se agrega para la configuración de la base
+try:
+    from .local_settings import *
+except ImportError:
+    pass
